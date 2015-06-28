@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Primos Circulares Test</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/css/scrolling-nav.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="/static/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/dist/sweetalert.css">
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Primos Circulares</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Funcionamiento del algoritmo</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+         
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Test Mercado Libre</br> </h1>
+			            <h3>Muestreo final de primos circulares que hay debajo de la cifra 1 millón</br></br></h3>
+                    {% for n in numbers %}
+                        <div style="float: left; width:80px; border: solid 1px;">
+                        {{ n.number }}
+                        </div>
+                    {% endfor %}
+                    </br></br><br/><br/>
+ 	        	</div>
+            </div>
+            <div class="row" style="margin-top: 100px;">
+                <div class="col-lg-12">
+                    <form>
+                        <div class="form-group">
+                            <label for="inputNumero">Averigue si ese numero que tanto le intriga es primo circular</label>
+                                <input type="text" class="form-control"  placeholder="Ingrese Número" style="width:150px; margin: 0 auto;">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Verificar</button>
+                    </form>
+                <div id="foo"></div> 
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Test Números Primos Circulares</h1><p>
+			<p class="font_p" style="font-size:25px;"><strong>Primer Paso - Generación de números primos menores a 1 millón</strong></p>
+            <p class="font_p" style="font-size:15px;"> Calculamos los numeros primos que se encuentran bajo 1 millón, para esto nos basamos en un algoritmo que va calculando numero por numero. Se va realizando la division por sus numeros primos anteriores, si el resto es distinto de cero y supera un limite, el cual viene impuesto por la raiz cuadrada redondeada, podemos asegurar que el numero evaluado es primo y se agrega a un arreglo con numeros primos, el cual en un futuro servira para evaluar si algun numero mayor es primo, este algoritmo es el que mejor me respondio para generar tantos numeros primos.</br>
+Por ejemplo, vamos evaluando paso a paso y nos aparece el sigueinte numero: n =37 no necesitamos probar todos los números desde 3 hasta 36 para determinar si n es primo. En su lugar, solo tenemos que probar los números desde 2 hasta la raíz cuadrada de 37, redondeada.
+    La raíz cuadrada de 37 es 6.08 que redondeamos a 7. 37 no es divisible entre 3, 4, 5, 6 y 7, por lo que podemos determinar con certeza que es primo.</br> En caso que algun resto de == a 0 antes, podemos asegurar que no es primo y se pasa al sigueinte valor de n.</p>
+<p class="font_p" style="font-size:25px;"><strong>Segundo Paso - Eliminación de Números primos no candidatos a tener circulares</strong></p>
+                                <p class="font_p" style="font-size:15px;">Por comprension del problema, los numeros primos que contienen los digitos 0, 2, 4, 5, 6, 8 no pueden tener primos circulares, por ejemplo podemos asegurar que el numero 23 es primo pero posee un 2, sabemos que su circular es par y por ende, no es primo, lo mismo pasa para todos los numeros pares, los que incluyen un cero y los que incluyen un 5, tal es el caso del 51, es primo pero el 15 no.</p>
+</br>
+<p class="font_p" style="font-size:25px;"><strong>Tercer Paso - Recorrer circulares y comprobar si es primo</strong></p>
+                                <p class="font_p" style="font-size:15px;">
+Este paso consiste en comprobar los circulares de la lista reducida y evaluar si es primo, por cada circular, si todos cumple, podemos asegurar que el numero tiene circulares primos.
+
+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Datos del postulante</h1>
+                        <p class="font_p" style="font-size:25px;">
+			            <br/>Antolini, Jonathan
+                        <br/>E-mail: jony.antolini@gmail.com<br/>Telefóno: 0261- 152060729
+                        <br/><a href="https://github.com/antolinij/">Cuenta GitHub (sin uso) </a><br/> 
+                        <a href= "https://bitbucket.org/antolinij">Cuenta Bitbucket</a>
+                        <br/>
+                        <a href="https://github.com/antolinij/Primos-circulares">Repositorio de este Test</a>
+                        </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+    <!-- script con funciones para calcular primos -->
+    <script src="/static/js/utils.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="/static/js/jquery.easing.min.js"></script>
+    <script src="/static/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

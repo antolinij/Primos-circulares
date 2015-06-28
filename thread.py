@@ -1,9 +1,9 @@
 import threading
 import utils 
 
-class RemoveSomePrimesThread(threading.Thread):
+class BuscaPrimosCircularesThread(threading.Thread):
     def __init__(self, primes):
-        super(RemoveSomePrimesThread, self).__init__()
+        super(BuscaPrimosCircularesThread, self).__init__()
         self.primes=primes
     
     def run(self):
@@ -36,7 +36,7 @@ end= 0
 #eliminamos de los numeros primos los que no pueden ser primos, por comprension, ejemplo los q poseen un nro par.
 for i in range(5):
     end= (size_primos/5)* (i+ 1) 
-    t = RemoveSomePrimesThread(primos[start:end])
+    t = BuscaPrimosCircularesThread(primos[start:end])
     start= (size_primos/5)* (i+ 1)
     #agregamos a la lista cada hilo para referencia
     threads.append(t)
