@@ -33,18 +33,25 @@ Luego se ejecutan 5 hilos para que eliminen a todos los primos que no son circul
 
  ### Funcionamiento ###
 
-    Cuando lleguen a la web, verán un listado de primos circulares, estos vienen de una base de datos, los cuales fueron cargados en el inicio del servidor.
+    
+    Cuando lleguen a la web, verán un listado de primos circulares, estos vienen de una base de datos, 
+    los cuales fueron cargados en el inicio del servidor.
 
-    Cuando se realiza un Migrate del modelo Prime, el cual tiene un atributo llamado number, se le anexa el script antes detallado, entocnes al levantarse el 
-    proyecto django y al sincronizar la base de datos, se da cuenta que tiene informacion que cargar y la carga a la base de datos.
+    Cuando se realiza un Migrate del modelo Prime, el cual tiene un atributo llamado number, 
+    se le anexa el script antes detallado, entocnes al levantarse el 
+    proyecto django y al sincronizar la base de datos, 
+    se da cuenta que tiene informacion que cargar y la carga a la base de datos.
 
-    Luego cuando se hace el request a la pagina, se consulta a la base de datos y se genera esa tabla con primos circulares.
+    Luego cuando se hace el request a la pagina, se consulta a la base de datos y 
+    se genera esa tabla con primos circulares.
 
-    Una vez ingresado un numero (o una letra) para calcular si es primo circular, no es por base de datos, esto utiliza el modulo utils.py, el cual contiene funciones
+    Una vez ingresado un numero (o una letra) para calcular si es primo circular, 
+    no es por base de datos, esto utiliza el modulo utils.py, el cual contiene funciones
 
     para chequear si es primo, si es primo circular, etc.
 
-    Podran observar esta vista en primos-circulares/base/views.py, ahi se encuentra la logica para verificar cada valor ingresado.
+    Podran observar esta vista en primos-circulares/base/views.py, 
+    ahi se encuentra la logica para verificar cada valor ingresado.
 
     Se uso Bootstrap para el maquetado y Sweet Alert para los mensajes.
 
