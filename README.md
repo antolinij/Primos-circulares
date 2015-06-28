@@ -9,6 +9,10 @@ Test ML, obtencion de numeros primos circulares bajo la cifra un millon
 
 ### Script en python ###
 
+## Tecnología ##
+
+Python 2.7 
+
 `$ mkdir /home/data/primos-circulares`
 
 `$ cd /home/data/primos-circulares/`
@@ -30,6 +34,10 @@ Luego se ejecutan 5 hilos para que eliminen a todos los primos que no son circul
 ### Pagina web  ###
 
  [Primos Circulares - Web en desarrollo](http://ardilla.com.ar:8989)
+
+ ## Tecnología ##
+
+ Python 2.7, Django 1.7, SQLite3, Bootstrap, Sweet Alert, Jquery
 
  ### Funcionamiento ###
 
